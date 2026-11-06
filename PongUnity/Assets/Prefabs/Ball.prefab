@@ -180,5 +180,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ball
   maxYPosition: 4.8
   maxXPosition: 10
-  movementSpeed: 0.01
+  movementSpeed: 0.07
   direction: {x: 1, y: 0, z: 0}
