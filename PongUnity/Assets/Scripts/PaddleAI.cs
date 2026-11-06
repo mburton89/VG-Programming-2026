@@ -32,11 +32,15 @@ public class PaddleAI : MonoBehaviour
     {
         if(activeBall.transform.position.y < paddleToControl.transform.position.y)
         {
-
+            paddleToControl.MoveDown();
+        }
+        else if (activeBall.transform.position.y > paddleToControl.transform.position.y)
+        {
+            paddleToControl.MoveDown();
         }
     }
     bool IsBallApproaching()
     {
-
+        return true;
     }
 }
