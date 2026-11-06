@@ -3,6 +3,7 @@ using UnityEngine;
 public class PaddleAI : MonoBehaviour
 {
     public Paddle paddleToControl;
+    public bool isP1;
     public float ballDistance;
     private Ball activeBall;
 
@@ -45,6 +46,15 @@ public class PaddleAI : MonoBehaviour
 
     bool BallIsApproaching()
     {
+        if (ballDirection() != isP1)
         return true;
+        else return false;
+    }
+
+    bool ballDirection()
+    {
+        if (activeBall.direction.x > 0.0f)
+            return true;
+        else return false;
     }
 }
