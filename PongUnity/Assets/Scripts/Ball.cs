@@ -7,6 +7,9 @@ public class Ball : MonoBehaviour
     public float movementSpeed;
     public Vector3 direction;
 
+    public float speedToIncrease;
+    public bool applySpeedIncrease;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +36,12 @@ public class Ball : MonoBehaviour
     public void GetHit(Vector3 newDirection)
     { 
         direction = newDirection;
+
+        if (applySpeedIncrease)
+        {
+            movementSpeed += speedToIncrease;
+        }
+
     }
 
     void Move()
@@ -40,4 +49,5 @@ public class Ball : MonoBehaviour
         transform.position += direction * movementSpeed;
     }
 
+  
 }

@@ -36,12 +36,17 @@ public class Paddle : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Ball ball))
         {
             //its the BALL that we've collided with
-
+            //ball.movementSpeed = 2 * ball.movementSpeed;
+            //if (ball.movementSpeed  > .07f)
+            //{
+            //    ball.movementSpeed = (0.07f);
+            //}
             float yHitDirection = collision.transform.position.y - transform.position.y;
 
             Vector3 newHitDirection = new Vector3(xHitDirection, yHitDirection);
 
             ball.GetHit(newHitDirection);
+            
         }
     }
 
@@ -57,7 +62,7 @@ public class Paddle : MonoBehaviour
     }
 
     public void HitBall()
-    { 
-    
+    {
+        
     }
 }
