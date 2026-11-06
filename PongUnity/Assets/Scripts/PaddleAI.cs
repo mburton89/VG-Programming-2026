@@ -34,11 +34,11 @@ public class PaddleAI : MonoBehaviour
 
     void FollowBall()
     {
-        if (activeBall.transform.position.y < paddleToControl.transform.position.y)
+        if (activeBall.transform.position.y < paddleToControl.transform.position.y && paddleToControl.transform.position.y > paddleToControl.minYPosition)
         {
             paddleToControl.MoveDown();
         }
-        else if (activeBall.transform.position.y > paddleToControl.transform.position.y)
+        else if (activeBall.transform.position.y > paddleToControl.transform.position.y && paddleToControl.transform.position.y < paddleToControl.maxYPosition)
         {
             paddleToControl.MoveUp();
         }
