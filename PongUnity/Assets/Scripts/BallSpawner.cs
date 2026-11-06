@@ -1,30 +1,47 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
+    public static BallSpawner Instance; // only one of it and another class needs to talk to it
+
     public GameObject ballPrefab;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SpawnBall();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnBall();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SpawnBall();
+        //}
     }
 
     public void SpawnBall()
     {
+        StartCoroutine(DelaySpawnBall());
+    }
+
+    private IEnumerator DelaySpawnBall()
+    {
+        Debug.Log("About to Spawn Ball -- waiting for X seconds");
+        yield return new WaitForSeconds(2);  //make public later
+        Debug.Log("Ball Spawned");
+
         GameObject newBall = Instantiate(ballPrefab);
 
-        float randX = Random.Range(-1.0f, 1.0f);
-        float randY = Random.Range(-1.0f, 1.0f);
+        float randX = Random.Range(0, 2) * 2 - 1;
+        float randY = Random.Range(-0.50f, 0.5f);
 
         newBall.GetComponent<Ball>().direction = new Vector3(randX, randY).normalized;
 
