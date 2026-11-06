@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 181130217}
   - component: {fileID: 181130216}
   - component: {fileID: 181130219}
+  - component: {fileID: 181130220}
   m_Layer: 0
   m_Name: Paddle - P1
   m_TagString: Untagged
@@ -256,6 +257,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &181130220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181130215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b606d38607193644909e0673c914eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paddle
+  maxYPosition: 4.2
+  minYPosition: -4.2
+  xHitDirection: 1
+  verticalMovementSpeed: 0.01
+  upKey: 119
+  downKey: 115
 --- !u!1 &312629232
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 312629234}
   - component: {fileID: 312629236}
+  - component: {fileID: 312629237}
   m_Layer: 0
   m_Name: Ball Spawner
   m_TagString: Untagged
@@ -346,6 +366,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &312629237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312629232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db72b62f91643469a6c95937dcac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
+  ballPrefab: {fileID: 3878473341045842731, guid: 241418f4d3e57eb48b8f5fefe25e9d41, type: 3}
 --- !u!1 &420508100
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1002,7 @@ GameObject:
   - component: {fileID: 1166029389}
   - component: {fileID: 1166029388}
   - component: {fileID: 1166029390}
+  - component: {fileID: 1166029391}
   m_Layer: 0
   m_Name: Paddle - P2
   m_TagString: Untagged
@@ -1095,6 +1129,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1166029391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166029386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b606d38607193644909e0673c914eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paddle
+  maxYPosition: 4.2
+  minYPosition: -4.2
+  xHitDirection: -1
+  verticalMovementSpeed: 0.01
+  upKey: 273
+  downKey: 274
 --- !u!1 &1638924371
 GameObject:
   m_ObjectHideFlags: 0
