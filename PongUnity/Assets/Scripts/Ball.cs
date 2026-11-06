@@ -7,6 +7,9 @@ public class Ball : MonoBehaviour
     public float movementSpeed;
     public Vector3 direction;
 
+    public float speedToIncrease;
+    public bool applySpeedIncrease; //WILL NEED TO TOGGLE THIS ON IN BALL PREFAB
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +36,11 @@ public class Ball : MonoBehaviour
     public void GetHit(Vector3 newDirection)
     { 
         direction = newDirection;
+
+        if (applySpeedIncrease)
+        { 
+            movementSpeed += speedToIncrease;
+        }
     }
 
     void Move()
