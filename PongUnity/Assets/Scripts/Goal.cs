@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.GetComponent<Ball>())
         {
             ScoreManager.Instance.GivePoint(isPlayerOneGoal);
+            Destroy(collision.gameObject);
         }
     }
 }

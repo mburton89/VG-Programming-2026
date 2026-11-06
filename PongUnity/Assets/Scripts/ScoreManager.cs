@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            //TODO
+            BallSpawner.Instance.SpawnBall();
         }
     }
     public void UpdateScoreboard()
