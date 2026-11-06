@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
   paddleToControl: {fileID: 1166029391}
+  isP1: 0
   ballDistance: 0
 --- !u!4 &643112330
 Transform:
@@ -1201,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56861f11aa286f4459537c972a6d0fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  maxScore: 3
+  maxScore: 10
   p1WinMessage: Player 1 wins
   p2WinMessage: Player 2 wins
   p1ScoreText: {fileID: 422591139}
@@ -1408,6 +1409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
   paddleToControl: {fileID: 181130220}
+  isP1: 1
   ballDistance: 0
 --- !u!1 &1380355594
 GameObject:

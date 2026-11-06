@@ -35,7 +35,7 @@ public class BallSpawner : MonoBehaviour
     private IEnumerator DelaySpawnBall()
     {
         Debug.Log("About to spawn ball -- waiting for X seconds");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Ball spawned");
 
         GameObject newBall = Instantiate(ballPrefab);
