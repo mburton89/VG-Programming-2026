@@ -5,6 +5,10 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
+    public bool sizeDecrease;
+    public Paddle p1Paddle;
+    public Paddle p2Paddle;
+
     int p1Score;
     int p2Score;
     public int maxScore;
@@ -32,10 +36,20 @@ public class ScoreManager : MonoBehaviour
         if (isPlayer1)
         {
             p1Score++;
+
+            if (sizeDecrease)
+            {
+                p1Paddle.transform.localScale -= new Vector3(0, 0.1f);
+            }
         }
         else
         {
             p2Score++;
+
+            if (sizeDecrease)
+            {
+                p2Paddle.transform.localScale -= new Vector3(0, 0.1f);
+            }
         }
 
         UpdateScoreboard();

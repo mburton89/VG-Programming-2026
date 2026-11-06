@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154294528}
-  - component: {fileID: 154294527}
+  - component: {fileID: 154294529}
   m_Layer: 0
   m_Name: P1 AI Bot
   m_TagString: Untagged
@@ -136,21 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &154294527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154294526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099fd864c2d025744a6abcd3844a2130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
-  paddleToControl: {fileID: 181130220}
-  activeBall: {fileID: 0}
-  ballDistance: 0
 --- !u!4 &154294528
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +151,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154294529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154294526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099fd864c2d025744a6abcd3844a2130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
+  paddleToControl: {fileID: 181130220}
+  activeBall: {fileID: 0}
+  ballDistance: 0
 --- !u!1 &181130215
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +320,7 @@ MonoBehaviour:
   minYPosition: -4.2
   xHitDirection: 1
   verticalMovementSpeed: 0.01
+  speedIncrease: 1
   upKey: 119
   downKey: 115
 --- !u!1 &235884481
@@ -354,6 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Goal
   isPlayer1Goal: 1
+  sizeDecrease: 0
+  p1Paddle: {fileID: 0}
+  p2Paddle: {fileID: 0}
 --- !u!61 &235884483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,6 +477,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &288030861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288030863}
+  - component: {fileID: 288030862}
+  m_Layer: 0
+  m_Name: 'P2 AI Bot '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &288030862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288030861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099fd864c2d025744a6abcd3844a2130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
+  paddleToControl: {fileID: 1166029391}
+  activeBall: {fileID: 0}
+  ballDistance: 0
+--- !u!4 &288030863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288030861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312629232
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,53 +628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
   ballPrefab: {fileID: 3878473341045842731, guid: 241418f4d3e57eb48b8f5fefe25e9d41, type: 3}
---- !u!1 &402380071
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 402380073}
-  - component: {fileID: 402380072}
-  m_Layer: 0
-  m_Name: 'P2 AI Bot '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &402380072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402380071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099fd864c2d025744a6abcd3844a2130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PaddleAI
-  paddleToControl: {fileID: 1166029391}
-  activeBall: {fileID: 0}
-  ballDistance: 0
---- !u!4 &402380073
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402380071}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420508100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0c7334708f7243bbfdc18fb0d69b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  sizeDecrease: 1
+  p1Paddle: {fileID: 181130220}
+  p2Paddle: {fileID: 1166029391}
   maxScore: 3
   p1ScoreText: {fileID: 422591139}
   p2ScoreText: {fileID: 1638924373}
@@ -1409,6 +1416,7 @@ MonoBehaviour:
   minYPosition: -4.2
   xHitDirection: -1
   verticalMovementSpeed: 0.01
+  speedIncrease: 1
   upKey: 273
   downKey: 274
 --- !u!1 &1633618330
@@ -1443,6 +1451,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Goal
   isPlayer1Goal: 0
+  sizeDecrease: 0
+  p1Paddle: {fileID: 0}
+  p2Paddle: {fileID: 0}
 --- !u!61 &1633618332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1712,4 +1723,4 @@ SceneRoots:
   - {fileID: 966753887}
   - {fileID: 701411128}
   - {fileID: 154294528}
-  - {fileID: 402380073}
+  - {fileID: 288030863}

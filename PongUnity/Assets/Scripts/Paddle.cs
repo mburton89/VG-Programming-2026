@@ -7,6 +7,8 @@ public class Paddle : MonoBehaviour
     public int xHitDirection;
     public float verticalMovementSpeed;
 
+    public bool speedIncrease;
+
     public KeyCode upKey;
     public KeyCode downKey;
 
@@ -42,6 +44,11 @@ public class Paddle : MonoBehaviour
             Vector3 newHitDirection = new Vector3(xHitDirection, yHitDirection);
 
             ball.GetHit(newHitDirection);
+
+            if (speedIncrease)
+            {
+                ball.movementSpeed += .005f;
+            }
         }
     }
 
