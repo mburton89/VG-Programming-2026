@@ -181,4 +181,5 @@ MonoBehaviour:
   maxYPosition: 4.8
   maxXPosition: 10
   movementSpeed: 0.01
+  increaseSpeed: 0
   direction: {x: 1, y: 0, z: 0}
