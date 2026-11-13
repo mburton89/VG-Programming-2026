@@ -6,8 +6,12 @@ public class Ball : MonoBehaviour
     public float maxXPosition;
     public float movementSpeed;
     public Vector3 direction;
+
     public double boostSpeed;
     public bool speedUp;
+
+    [HideInInspector] public float previousXPosition;
+    [HideInInspector] public float currentXPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +24,9 @@ public class Ball : MonoBehaviour
     {
         Move();
         CheckBoundaries();
+
+        previousXPosition = currentXPosition;
+        currentXPosition = transform.position.x;
     }
 
     void CheckBoundaries()
