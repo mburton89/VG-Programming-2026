@@ -10,6 +10,14 @@ public class Ball : MonoBehaviour
     public bool useSpeedIncrease;
     int timesHit = 10;
 
+    //two new floats to hold previouse and current X Position
+    //we want other classes to be able to access this data
+    //but we DONT wnat the game designer to be able  to asign these in UNity inspector
+    //...so we can add this modifier called [HideInInspecot]
+    [HideInInspector] public float previouseXPosition;
+    [HideInInspector] public float currentXPosition;
+    //next lets assign these values in Update()
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +29,9 @@ public class Ball : MonoBehaviour
     {
         Move();
         CheckBoundaries();
+
+        previouseXPosition = currentXPosition;
+        currentXPosition = transform.position.x;
     }
 
     void CheckBoundaries()
