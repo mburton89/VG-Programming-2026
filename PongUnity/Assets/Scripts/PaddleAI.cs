@@ -6,6 +6,8 @@ public class PaddleAI : MonoBehaviour
     public Ball activeBall;
     public float ballDistance;
 
+    public float distanceBuffer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,7 @@ public class PaddleAI : MonoBehaviour
         {
             LookForBall();
         }
-        else //THE BALL IS FOUND!
+        else if (BallIsApproaching())
         {
             FollowBall();
         }
@@ -32,11 +34,11 @@ public class PaddleAI : MonoBehaviour
 
     void FollowBall()
     {
-        if (activeBall.transform.position.y < paddleToControl.transform.position.y)
+        if (activeBall.transform.position.y < paddleToControl.transform.position.y - distanceBuffer)
         {
             paddleToControl.MoveDown();
         }
-        else if (activeBall.transform.position.y > paddleToControl.transform.position.y)
+        else if (activeBall.transform.position.y > paddleToControl.transform.position.y + distanceBuffer)
         {
             paddleToControl.MoveUp();
         }
@@ -44,6 +46,8 @@ public class PaddleAI : MonoBehaviour
 
     bool BallIsApproaching()
     {
-        return true;
+        float previousBallPaddleDistance = Mathf.Abs(activeBall.previousXPosition - paddleToControl.transform.position.x);
+        float currentBallPaddleDistance = Mathf.Abs(activeBall.currentXPosition - paddleToControl.transform.position.x);
+        return currentBallPaddleDistance < previousBallPaddleDistance;
     }
 }
