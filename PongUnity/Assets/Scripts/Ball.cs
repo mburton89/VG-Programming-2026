@@ -35,7 +35,7 @@ public class Ball : MonoBehaviour
     {
         if (speedBoost)
         {
-            movementSpeed *= 1.1f;
+            movementSpeed *= 1.05f;
         }
         direction = newDirection;
     }

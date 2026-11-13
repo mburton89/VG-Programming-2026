@@ -6,6 +6,7 @@ public class PaddleAI : MonoBehaviour
     public bool isP1;
     public float ballDistance;
     private Ball activeBall;
+    public float distanceBuffer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +21,7 @@ public class PaddleAI : MonoBehaviour
         {
             LookForBall();
         }
-        else if(BallIsApproaching())
+        else
         {
             FollowBall();
         }
@@ -33,12 +34,16 @@ public class PaddleAI : MonoBehaviour
 
     void FollowBall()
     {
-        float Rand = Random.Range(-1.0f, 1.0f);
-        if (paddleToControl.transform.position.y > activeBall.transform.position.y + Rand)
+        float tempDistanceBuffer = distanceBuffer;
+        if (!BallIsApproaching())
+        {
+            tempDistanceBuffer *= 4.5f;
+        }
+        if (paddleToControl.transform.position.y > activeBall.transform.position.y + tempDistanceBuffer)
         {
             paddleToControl.MoveDown();
         }
-        else if (paddleToControl.transform.position.y < activeBall.transform.position.y + Rand)
+        else if (paddleToControl.transform.position.y < activeBall.transform.position.y - tempDistanceBuffer)
         {
             paddleToControl.MoveUp();
         }

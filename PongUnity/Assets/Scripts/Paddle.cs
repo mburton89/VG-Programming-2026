@@ -19,11 +19,11 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(upKey) && transform.position.y < maxYPosition)
+        if (Input.GetKey(upKey))
         {
             MoveUp();
         }
-        else if (Input.GetKey(downKey) && transform.position.y > minYPosition)
+        else if (Input.GetKey(downKey))
         {
             MoveDown();
         }
@@ -48,11 +48,13 @@ public class Paddle : MonoBehaviour
     
     public void MoveUp()
     {
+        if (transform.position.y < maxYPosition)
         transform.position += Vector3.up * verticalMovementSpeed;
     }
 
     public void MoveDown()
     {
+        if (transform.position.y > minYPosition)
         transform.position += Vector3.down * verticalMovementSpeed;
     }
 
