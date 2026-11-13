@@ -10,6 +10,12 @@ public class Ball : MonoBehaviour
     public float speedToIncrease;
     public bool applySpeedIncrease; //WILL NEED TO TOGGLE THIS ON IN BALL PREFAB
 
+    //two new floats to hold previous and current X positions
+    //we want other classes to be able to access the data but we dont want the game designer to assign them in the Unity Inspector
+
+    [HideInInspector] public float previousXPosition;
+    [HideInInspector] public float currentXPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +27,9 @@ public class Ball : MonoBehaviour
     {
         Move();
         CheckBoundaries();
+
+        previousXPosition = currentXPosition;
+        currentXPosition = transform.position.x;
     }
 
     void CheckBoundaries()
