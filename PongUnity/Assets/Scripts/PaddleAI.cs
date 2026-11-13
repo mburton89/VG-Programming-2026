@@ -6,6 +6,9 @@ public class PaddleAI : MonoBehaviour
     public Paddle paddleToControl;
     public Ball activeBall;
     public float ballDistance;
+    public float distanceBuffer;
+    
+    // we will use this in our followball calculation
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +25,10 @@ public class PaddleAI : MonoBehaviour
         }
         else
         {
-            FollowBall();
+            if (BallIsApproaching())
+            {
+                FollowBall();
+            }
         }
     }
 
@@ -33,11 +39,12 @@ public class PaddleAI : MonoBehaviour
 
     void FollowBall()
     {
-        if(activeBall.transform.position.y < paddleToControl.transform.position.y)
+        // adding or subtracting distance buffer so it will move up or down until its kinda close to center
+        if(activeBall.transform.position.y < paddleToControl.transform.position.y - distanceBuffer)
         {
             paddleToControl.MoveDown();
         }
-        else if (activeBall.transform.position.y > paddleToControl.transform.position.y)
+        else if (activeBall.transform.position.y > paddleToControl.transform.position.y + distanceBuffer)
         {
             paddleToControl.MoveUp();
         }
@@ -45,7 +52,19 @@ public class PaddleAI : MonoBehaviour
 
     bool BallIsApproaching()
     {
-        return true;
+        // right now we are returning true just as a placeholder. thats why the ai bots paddle always follows the ball
+
+        // two new floats to store the distance between ball and paddle
+
+        float previousDistanceBetweenBallAndPaddle = Mathf.Abs(activeBall.previousXPosition - paddleToControl.transform.position.x);
+        float currentDistanceBetweenBallAndPaddle = Mathf.Abs(activeBall.currentXPosition - paddleToControl.transform.position.x);
+
+        if(currentDistanceBetweenBallAndPaddle < previousDistanceBetweenBallAndPaddle)
+        {
+            return true;
+        }
+        else
+        {  return false; }
     }
 
 }
