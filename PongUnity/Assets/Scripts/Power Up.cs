@@ -19,7 +19,7 @@ public class PowerUp : MonoBehaviour
                 Debug.Log("Speed Increase");
                 break;
             case PowerUpType.paddleShrink:
-                Debug.Log("Paddle Shring");
+                Debug.Log("Paddle Shrink");
                 break;
             case PowerUpType.multiBall:
                 Debug.Log("Multi Ball");
