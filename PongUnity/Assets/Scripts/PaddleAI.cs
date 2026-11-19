@@ -6,11 +6,14 @@ public class PaddleAI : MonoBehaviour
     public Ball activeBall;
     public float ballDistance;
 
-    //The paddle bot always hits the center as it is too good.
-    //Adding a distance buffer so that it hits the ball x units away from the center.
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //right now our paddle bot is too good. It follows the ball so precisely so that the ball
+    //always hits the very center. Thats no fun bc then there is no slope to the hit
+    //lets add a distance buffer so that it hits the ball x units away from the center. k?!
 
-    public float distanceBuffer; // will be used in the FollowBall calculations
+    public float distanceBuffer; // We will use this in our FollowBall() calculation
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
@@ -26,7 +29,7 @@ public class PaddleAI : MonoBehaviour
         else //THE BALL IS FOUND!
         {
             if (BallIsApproaching())
-            {
+            { 
                 FollowBall();
             }
         }
@@ -39,6 +42,7 @@ public class PaddleAI : MonoBehaviour
 
     void FollowBall()
     {
+        //adding or subracting disance buffer so it will move up or down until the ball is KINDA close to center
         if (activeBall.transform.position.y < paddleToControl.transform.position.y - distanceBuffer)
         {
             paddleToControl.MoveDown();
@@ -51,15 +55,22 @@ public class PaddleAI : MonoBehaviour
 
     bool BallIsApproaching()
     {
+        //Right now we are returning 'true' just as a placeholder. Thats why the ai bot's baddle ALWAYS follows the ball
+
         //two new floats to store the distance between ball and paddle
-        float previousDistanceBetweenBallAndPaddle = Mathf.Abs(activeBall.previousXPosition - paddleToControl.transform.position.x);
-        float currentDistanceBetweenBallAndPaddle = Mathf.Abs(activeBall.currentXPosition - paddleToControl.transform.position.x);
+
+        //before we determine the distance, we need to make the Ball.cs class have more data
+        float previousDistanceBetweenBallAndPaddle
+            = Mathf.Abs(activeBall.previousXPosition - paddleToControl.transform.position.x);
+
+        float currentDistanceBetweenBallAndPaddle
+            = Mathf.Abs(activeBall.currentXPosition - paddleToControl.transform.position.x);
 
         if (currentDistanceBetweenBallAndPaddle < previousDistanceBetweenBallAndPaddle)
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }

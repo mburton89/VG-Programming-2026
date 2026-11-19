@@ -1,5 +1,8 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections.Generic; //You have to use this API to get acces to Lists. 
+                                  /// <summary>
+                                  ///  this should be their by default IMO
+                                  /// </summary>
 
 public class PowerupSpawner : MonoBehaviour
 {
@@ -10,4 +13,5 @@ public class PowerupSpawner : MonoBehaviour
     {
         
     }
+    
 }

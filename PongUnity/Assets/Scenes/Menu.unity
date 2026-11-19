@@ -448,12 +448,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 555601267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3df0a87f04814498f8fe199ba1fd8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 67e1a95a738505f4580a3b2a60cd2681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  zeroPlayerButton: {fileID: 1982227756}
+  zeroPlayersButton: {fileID: 1982227756}
   onePlayerButton: {fileID: 2071186552}
-  twoPlayerButton: {fileID: 2077729469}
+  twoPlayersButton: {fileID: 2077729469}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

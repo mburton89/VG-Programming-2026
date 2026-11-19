@@ -3,7 +3,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     public enum PowerupType
-    {
+    { 
         speedIncrease,
         paddleShrink,
         multiBall
@@ -14,15 +14,15 @@ public class Powerup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (type)
-        {
+        { 
             case PowerupType.speedIncrease:
-                Debug.Log("Speed Increase Trigger");
+                Debug.Log("Speed Increase");
                 break;
             case PowerupType.paddleShrink:
                 Debug.Log("Paddle Shrink");
                 break;
             case PowerupType.multiBall:
-                Debug.Log("Multi Ball - Jimmy Lightning");
+                Debug.Log("multiBall");
                 break;
         }
     }
