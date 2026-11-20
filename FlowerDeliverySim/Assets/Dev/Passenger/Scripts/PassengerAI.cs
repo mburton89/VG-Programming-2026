@@ -14,10 +14,11 @@ public class PassengerAI : MonoBehaviour
     private Vector3 startingPoint;
     private Vector3 currentDirection;
     private Vector3 targetPos;
-    private bool isNavigating = true;
+    private bool isNavigating;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isNavigating = true;
         startingPoint = transform.position;
         targetPos = GetTargetPos();
     }
