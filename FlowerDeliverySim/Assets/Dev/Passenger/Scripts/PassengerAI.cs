@@ -50,7 +50,7 @@ public class PassengerAI : MonoBehaviour
     }
     bool IsWithinDistance(Vector3 targetPos)
     {
-        return Vector3.Distance(targetPos, StartingPoint) < MaxRadius;
+        return Vector3.Distance(targetPos, startingPoint) < MaxRadius;
     }
     IEnumerator PauseNavigation()
     {
