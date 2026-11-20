@@ -28,7 +28,7 @@ public class PassengerAIBehavior : MonoBehaviour
 
     public void MoveForward()
     {
-        transform.position += Vector3.up * movementSpeed;
+        transform.position += Vector3.forward * movementSpeed;
     }
 
     void OnCollisionEnter(Collision collision)
