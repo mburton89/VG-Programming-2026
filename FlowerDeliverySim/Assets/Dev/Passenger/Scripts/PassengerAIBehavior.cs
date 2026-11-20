@@ -31,6 +31,11 @@ public class PassengerAIBehavior : MonoBehaviour
         transform.position += Vector3.forward * movementSpeed;
     }
 
+    public void MoveBackward()
+    {
+        transform.position -= Vector3.backward * movementSpeed;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out Player player))
