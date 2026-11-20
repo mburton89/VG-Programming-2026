@@ -10,14 +10,15 @@ public class PassengerAI : MonoBehaviour
     public float MovementDistance;
     public float MaxRadius;
     public float AveragePauseTime;
-    public Vector3 StartingPoint;
 
+    private Vector3 startingPoint;
     private Vector3 currentDirection;
     private Vector3 targetPos;
     private bool isNavigating = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        startingPoint = transform.position;
         targetPos = GetTargetPos();
     }
 
@@ -65,7 +66,6 @@ public class PassengerAI : MonoBehaviour
     {
         transform.position += direction * MovementSpeed;
     }
-
 
     void OnCollisionEnter(Collision collision)
     {
