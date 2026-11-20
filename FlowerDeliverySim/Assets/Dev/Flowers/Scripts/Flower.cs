@@ -13,7 +13,7 @@ public class Flower : MonoBehaviour
 
     public FlowerType flowerType;
     public int flowerHealth = 100;
-    public int degradationRate;
+    public int degradationRate = 0;
     public int pointValue;
     public int fallDamage;
     void Start()
